@@ -73,10 +73,10 @@
 	<div class="container listfeaturedtag">
         <div class="row">
             {% for a in articles %}
-            {% with article=a %}
-                {% include 'card.html' %}
-            {% endwith %}
-        {% endfor %}
+                {% with article=a %}
+                    {% include 'card.html' %}
+                {% endwith %}
+            {% endfor %}
         </div>
 
 	</div>
