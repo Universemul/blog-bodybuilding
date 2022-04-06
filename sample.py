@@ -1,10 +1,24 @@
 from blog import db
-from models import Article
+from models import Article, Author
 
 def create_all():
     db.create_all()
 
-def create_article():
-    a = Article(title="test david", description="Ceci est une description", author_img="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x", author_name="David", reading_time=6)
+def create_article(author: Author):
+    a = Article(
+        title="test david", 
+        description="Ceci est une description", 
+        reading_time=6,
+        author_id=author.id
+    )
     db.session.add(a)
     db.session.commit()
+
+def create_author():
+    a = Author(
+        name="David",
+        description="Bonjour, je suis un auteur",
+    )
+    db.session.add(a)
+    db.session.commit()
+    return a
